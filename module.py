@@ -1,7 +1,7 @@
 class Restaurant:
-    def __init__(self, name, id, rating, reviews, distance, location, url, phone):
+    def __init__(self, name, restid, rating, reviews, distance, location, url, phone):
         self.name = name
-        self.id = id
+        self.id = restid
         self.rating = rating
         self.reviews = reviews
         self.distance = distance

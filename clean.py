@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import geocoder
 import module
+import json
 
 # Import Yelp API key function
 # some_file.py
@@ -32,7 +33,8 @@ def queryToObjects(query):
     results = {'Name': [], 'ID':[], 'Rating': [], 'Pricing': [], 'Reviews': [], 'Distance': [], "Url": [], "Location": [], "Phone": []}
     restaurants = []
     for n, q in enumerate(query):
-        temp = module.Restaurant(q['name'],q['id'],q['rating'],q['review_count'], q['distance'], q['location']['display_address'], q['url'], q['phone'])
+        name = str(q['name'])
+        temp = module.Restaurant(name,q['id'],q['rating'],q['review_count'], q['distance'], q['location']['display_address'], q['url'], q['phone'])
         score = 0
         score += q['rating'] * 5
         score += q['review_count'] *.02
@@ -65,3 +67,12 @@ print(sorteddf[0].name)
 print(sorteddf[2].name)
 print(sorteddf[0].score)
 print(sorteddf[2].score)
+
+serialdf = []
+for x in sorteddf:
+    label = x
+    serialdf.append(label.__dict__)
+
+jsonString = json.dumps(serialdf)
+
+print(jsonString)
