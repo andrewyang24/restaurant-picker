@@ -34,7 +34,7 @@ def queryToObjects(query):
     restaurants = []
     for n, q in enumerate(query):
         name = str(q['name'])
-        temp = module.Restaurant(name,q['id'],q['rating'],q['review_count'], q['distance'], q['location']['display_address'], q['url'], q['phone'])
+        temp = module.Restaurant(name,q['id'],q['rating'],q['review_count'], q['distance'], q['location']['display_address'], q['url'], q['phone'], q['image_url'])
         score = 0
         score += q['rating'] * 5
         score += q['review_count'] *.02
@@ -56,22 +56,19 @@ def queryToObjects(query):
     return restaurants
 
 df = queryToObjects(response.json()['businesses'])
-print(df[0].name)
-print(df[2].name)
-print(df[0].score)
-print(df[2].score)
 def get_score(restaurant):
     return restaurant.score
 sorteddf = sorted(df, key=get_score, reverse=True)
-print(sorteddf[0].name)
-print(sorteddf[2].name)
-print(sorteddf[0].score)
-print(sorteddf[2].score)
 
 serialdf = []
 for x in sorteddf:
     label = x
     serialdf.append(label.__dict__)
+
+def get_restaurants():
+    return {"restaurant": serialdf}
+
+#print(get_restaurants())
 
 jsonString = json.dumps(serialdf)
 
