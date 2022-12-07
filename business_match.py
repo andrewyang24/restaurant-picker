@@ -23,13 +23,19 @@ def business_match():
 
 
     # Print restaurant details
-    name = business_data['name']
-    print(name)
-    location = business_data['location']['display_address']
-    print(location)
-    url = business_data['url']
-    print(url)
-    phone = business_data['phone']
-    print(phone)
-
+    details = {
+        'name': '',
+        'location': '',
+        'url': '',
+        'phone': '', 
+    }
+    details['name'] = business_data['name']
+    #print(name)
+    details['location'] = business_data['location']['display_address']
+    #print(location)
+    details['url'] = business_data['url']
+    #print(url)
+    details['phone'] = business_data['phone']
+    #print(phone)
     
+    return details

@@ -24,6 +24,7 @@ restindex = max(map, key=map.get)
 print(df.iloc[restindex]['Name'])
 restid = (df.iloc[restindex]['ID'])
 
+'''
 moveNext = input("Next (y/n)?")
 while moveNext == "y":
     del map[restindex]
@@ -31,3 +32,4 @@ while moveNext == "y":
     restid = (df.iloc[restindex]['ID'])
     print(df.iloc[restindex]['Name'])
     moveNext = input("Next (y/n)?")
+'''
