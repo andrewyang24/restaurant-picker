@@ -4,6 +4,10 @@ from business_search import *
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "200 OK"
+
 @app.route('/api', methods= ['GET'])
 def returndata():
     inputloc = str(request.args['query'])
