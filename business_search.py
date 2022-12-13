@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 import geocoder
-import app2
+import app
 
 # Import Yelp API key function
 # some_file.py

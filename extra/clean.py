@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 import geocoder
-import module
+import extra.module as module
 import json
 
 # Import Yelp API key function
