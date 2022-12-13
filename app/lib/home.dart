@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Simple Flask App')),
+      appBar: AppBar(title: Text('Restaurant Picker')),
       body: Center(
         child: Container(
           padding: EdgeInsets.all(20),
@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
                   });
                 },
                 child: Text(
-                  'Fetch ASCII Value',
+                  'Find a Restaurant',
                   style: TextStyle(fontSize: 20),
                 )),
             Text(
