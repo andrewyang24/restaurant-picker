@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import geocoder
+import app2
 
 # Import Yelp API key function
 # some_file.py
@@ -9,20 +10,21 @@ import sys
 sys.path.insert(1, r'C:\Users\andre\Desktop\My Comp Sci Projects\api-keys')
 import YelpAPI
 
-def business_search():
+def business_search(inputloc):
 
     url = 'https://api.yelp.com/v3/businesses/search'
     key = YelpAPI.get_my_key()
     headers = {'Authorization': 'bearer %s' % key}
 
-    g = geocoder.ip('me')
-    lat = g.lat
-    lng = g.lng
+    #g = geocoder.ip('me')
+    #lat = g.lat
+    #lng = g.lng
+
+    loc = inputloc
 
     parameters = {'term': 'Food',
                 'limit': 50,
-                'latitude': lat,
-                'longitude': lng,
+                'location': loc,
                 'open_now': True}
 
     response = requests.get(url, headers=headers, params=parameters)
@@ -43,4 +45,4 @@ def business_search():
         return pd.DataFrame(results)
 
     df = queryToDf(response.json()['businesses'])
-    df.to_csv(r'C:\Users\andre\Desktop\My Comp Sci Projects\yelp-app\test.csv')
+    df.to_csv(r'C:\Users\andre\Desktop\My Comp Sci Projects\restaurant_picker\test.csv')

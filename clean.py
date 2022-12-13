@@ -17,14 +17,13 @@ url = 'https://api.yelp.com/v3/businesses/search'
 key = YelpAPI.get_my_key()
 headers = {'Authorization': 'bearer %s' % key}
 
-g = geocoder.ip('me')
-lat = g.lat
-lng = g.lng
+#g = geocoder.ip('me')
+#lat = g.lat
+#lng = g.lng
 
 parameters = {'term': 'Food',
             'limit': 50,
-            'latitude': lat,
-            'longitude': lng,
+            'location': input,
             'open_now': True}
 
 response = requests.get(url, headers=headers, params=parameters)
