@@ -1,7 +1,7 @@
 from flask import Flask, request
 from business_match import *
 from business_search import *
-import pandas as pd
+
 
 app = Flask(__name__)
 
