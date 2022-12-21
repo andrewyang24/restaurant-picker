@@ -9,12 +9,14 @@ app = Flask(__name__)
 def home():
     return "200 OK"
 
-@app.route('/api', methods= ['GET'])
+@app.route('/api')
 def returndata():
+    """
     inputloc = str(request.args['query'])
     business_search(inputloc)
     d = business_match()
-    return d
+    """
+    return "Hello World"
 
 
 if __name__ == "__main__":
