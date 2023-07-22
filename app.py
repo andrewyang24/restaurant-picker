@@ -12,12 +12,12 @@ def home():
 
 @app.route('/api')
 def returndata():
-    """
+    
     inputloc = str(request.args['query'])
     business_search(inputloc)
     d = business_match()
-    """
-    return "Hello World"
+    
+    return d
 
 
 if __name__ == "__main__":
