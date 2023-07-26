@@ -2,13 +2,15 @@ from flask import Flask, request
 from business_match import *
 from business_search import *
 
-#comment
-
 app = Flask(__name__)
 
 @app.route("/")
 def home():
     return "200 OK"
+
+@app.route("/test")
+def test():
+    return "test endpoint"
 
 @app.route('/api')
 def returndata():
